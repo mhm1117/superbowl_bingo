@@ -9,12 +9,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-    width: 100vw;
-    height: 100vh;
-}
-
 .chiefs {
     background-color: #D30915;
 }
@@ -30,21 +24,84 @@ body {
     background-color: lightblue;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    #bgChiefs {
+    #bg-chiefs {
+        border-right: 3px solid white;
     }
-    #bgEagles {
+    #bg-eagles {
+        border-left: 3px solid white;
     }
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+}
 
 header {
+    /* border: 1px solid black; */
     text-align: center;
+    padding: 2em 0;
+
+    h1 {
+        font-family: baseballClubSolid;
+        font-size: 3em;
+        color: white;
+        -webkit-text-stroke: 1px black;
+    }
 }
 
-h1 {
-    padding: 1.5em 0;
-    font-family: baseballClubSolid;
-    font-size: 3em;
-    color: white;
-    -webkit-text-stroke: 1px black;
+main {
+    /* border: 2px solid black; */
+    flex-grow: 2;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 2em;
+    #bingo-card {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        max-width: 800px;
+        height: 100%;
+        margin: auto;
+        #card-title {
+            padding: 1em 0;
+            display: flex;
+            justify-content: space-around;
+            border: 2px solid black;
+            -webkit-text-stroke: 1px #054D52;
+        }
+        h2 {
+            font-family: baseballClubSolid;
+            font-size: 4em;
+        }
+        #square-grid {
+            flex-grow: 2;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            border: 2px solid black;
+            border-top: none;
+
+            .square:nth-of-type(5n+1), 
+            .square:nth-of-type(5n+2), 
+            .square:nth-of-type(5n+3),
+            .square:nth-of-type(5n+4) {
+                border-right: 2px solid black;
+            }
+            .square:nth-of-type(5n+6),
+            .square:nth-of-type(5n+7), 
+            .square:nth-of-type(5n+8),
+            .square:nth-of-type(5n+9),
+            .square:nth-of-type(5n+10) {
+                border-top: 2px solid black;
+            }
+        }
+    }
 }
+
+
+
+
