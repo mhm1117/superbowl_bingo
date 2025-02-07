@@ -21,17 +21,22 @@
         </div>
     </div>
 
-    <!-- <div id="num-picker">
+    <div id="num-picker">
         <h3>Pick Your Number</h3>
-        <label>Between 1-15</label>
-        <input type="number">
-    </div> -->
+        <form action="./index.html">
+            <label for="num">Between 1-15</label>
+            <input type="number" id="num" name="num">
+            <span id="badnum-msg" style="display: none;">Invalid Number :(</span>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+
     <header>
         <h1>SUPER BOWL LIX</h1>
     </header>
 
     <main>
-        <div id="bingo-card">
+        <div id="bingo-card" style="display: none;">
             <div id="card-title">
                 <h2>B</h2><h2>I</h2></h2><h2>N</h2><h2>G</h2><h2>O</h2>
             </div>
@@ -44,5 +49,9 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <h1>FUCK THE CHIEFS</h1>
+    </footer>
 </body>
 </html>

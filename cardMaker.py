@@ -1,4 +1,4 @@
-import random
+import random, csv
 
 MAIN_21 = ["Commentator Glazes Mahomes","Taylor Sighting","BS Pro-Chief Flag Call",
               "Barkley 30+ Yard TD","Mahomes Toes Sideline For 1st Down","Chiefpeat mentioned",
@@ -12,7 +12,7 @@ COMMS_COMP = ["FanDuel","Geico","State Farm","BudLight","Coca-Cola","Toyota","Ki
 
 COMMS_FEAT = ["Mahomes Feat.","Purdy Feat.","Kelce Brothers Feat.","Musical Artist Feat.","Backup QB"]
 
-NUM_CARDS = 1
+NUM_CARDS = 15
 
 def getCompSets(companys, numCards):
     compSets = []
@@ -42,10 +42,17 @@ def makeCards(numCards, compSets, featSets, mainSet):
         feat = featSets[featNum]
         featRange.remove(featNum)
         card = random.sample((mainSet + compSets[i] + [feat]), 25)
-        print(card)
         cardLists.append(card)
+        if (len(featRange) == 0):
+            featRange = list(range(0, len(featSets)))
+    
+    return cardLists
 
 
 
 companySets = getCompSets(COMMS_COMP, NUM_CARDS)
-makeCards(NUM_CARDS, companySets, COMMS_FEAT, MAIN_21)
+bingoCards = makeCards(NUM_CARDS, companySets, COMMS_FEAT, MAIN_21)
+
+with open('bingoCards.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(bingoCards)

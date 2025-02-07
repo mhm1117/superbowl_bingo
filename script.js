@@ -1,33 +1,66 @@
 window.addEventListener('DOMContentLoaded', init);
 
-let main21 = ["Commentator Glazes Mahomes","Taylor Sighting","BS Pro-Chief Flag Call",
-              "Barkley 30+ Yard TD","Mahomes Toes Sideline For 1st Down","Chiefpeat mentioned",
-              "Missed Field Goal","Game goes into OT","Successful Challenge","Pick-6",
-              "Crazy Impressive Catch","Fight Fight Fight","Player Throws Tantrum",
-              "Top Notch TD Celebration","Missed Extra Point","Turnover on downs","Chiefs Touchdown",
-              "Eagles Touchdown","Fumble / Interception","20+ yard catch","Quarterback Running Touchdown"];
-
-let commsComp = ["FanDuel","Geico","State Farm","BudLight","Coca-Cola","Toyota","Kia","Michelob Ultra",
-             "M&Ms","Little Caesars","UberEats","Wing Stop","Doritos","Redbull","Allstate"];
-
-let commsFeat = ["Mahomes","Purdy","Kelce Brothers","Musical Artist","Backup QB"];
+let cardsFile = "./bingoCards.csv";
+let cardNum = -1;
+let bingoCards;
 
 function init() {
+    getBingoCards(cardsFile);
+    getCardNum();
+}
 
-    fillEntries();
+function parseCSV(csvData) {
+    const rows = csvData.split('\n');
+    const result = [];
+  
+    for (const row of rows) {
+      const values = row.split(',');
+      result.push(values);
+    }
+    result.pop();
+    return result;
+}
+
+async function getBingoCards(file) {
+    let myObject = await fetch(file);
+    let myText = await myObject.text();
+
+    bingoCards = parseCSV(myText);
+}
+
+function getCardNum() {
+    const numForm = document.querySelector("form");
+
+    numForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(numForm);
+        cardNum = formData.get('num') - 1;
+        enterBingo(numForm);
+    });
 }
 
 function fillEntries() {
 
     let entries = document.querySelectorAll(".entry");
-    let cardList = ['20+ yard catch', 'Geico', 'Successful Challenge', 'Missed Extra Point', 'Commentator Glazes Mahomes', 'BS Pro-Chief Flag Call', 'Allstate', 'Backup QB', 'Chiefpeat mentioned', 'Chiefs Touchdown', 'Game goes into OT', 'Crazy Impressive Catch', 'Fight Fight Fight', 'Barkley 30+ Yard TD', 'Pick-6', 'Fumble / Interception', 'FanDuel', 'Taylor Sighting', 'Top Notch TD Celebration', 'Player Throws Tantrum', 'Missed Field Goal', 'Mahomes Toes Sideline For 1st Down', 'Turnover on downs', 'Eagles Touchdown', 'Quarterback Running Touchdown'];
+    let card = bingoCards[cardNum];
     let x = 0;
     entries.forEach(entry => {
-        entry.textContent = cardList[x];
+        entry.textContent = card[x];
         x++;
     });
 }
 
-function selectCommsComp() {
-    
+function enterBingo(form) {
+    if (cardNum >= 0 && cardNum <= 15) {
+        fillEntries();
+        let numPicker = document.getElementById("num-picker");
+        numPicker.style.display = "none";
+        let bingo = document.getElementById("bingo-card");
+        bingo.style.display = "flex";
+    } else {
+        let badNumMsg = document.getElementById("badnum-msg");
+        badNumMsg.style.display = "inline";
+        form.reset();
+    }
 }
