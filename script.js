@@ -8,8 +8,9 @@ function init() {
     setUpBingo(cardsFile);
     
     addSquareFunc();
-}
 
+    addResetFunc();
+}
 function addSquareFunc() {
     let squares = document.querySelectorAll(".square");
 
@@ -28,6 +29,15 @@ function addSquareFunc() {
             }
         });
     }
+}
+
+function addResetFunc() {
+    let resetBtn = document.getElementById("reset-btn");
+
+    resetBtn.addEventListener('click', event => {
+        localStorage.clear();
+        window.location.reload();
+    });
 }
 
 function parseCSV(csvData) {
@@ -117,4 +127,6 @@ function enterBingo() {
     numPicker.style.display = "none";
     let bingo = document.getElementById("bingo-card");
     bingo.style.display = "flex";
+    let resetBtn = document.getElementById("reset");
+    resetBtn.style.display = "inline-block";
 }
