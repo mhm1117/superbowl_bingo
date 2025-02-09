@@ -148,6 +148,12 @@ main {
                 flex-direction: column;
                 justify-content: center;
                 overflow-wrap: break-word;
+                p {
+                    margin: 0.1em;
+                    padding: 0.5em 0;
+                    border-radius: 50px;
+                    background-color: white;
+                }
             }
 
             .square:nth-of-type(5n+1), 
@@ -198,4 +204,10 @@ footer {
     p {
         font-size: 0.75em;
     }
+}
+
+.square {
+    /* p {
+        background-color: #FFF11B;
+    } */
 }

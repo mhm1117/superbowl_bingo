@@ -1,11 +1,11 @@
 import random, csv
 
-MAIN_21 = ["Commentator Glazes Mahomes","Taylor Sighting","BS Pro-Chief Flag Call",
-              "Barkley 30+ Yard TD","Mahomes Toes Sideline For 1st Down","Chiefpeat mentioned",
+MAIN_21 = ["Announcer Glazes Mahomes","Taylor Sighting","BS Pro-Chief Flag Call",
+              "Barkley 3O+ Yard TD","Mahomes Toes Sideline For 1st Down","Chiefpeat mentioned",
               "Missed Field Goal","Game goes into OT","Successful Challenge","Pick-6",
               "Crazy Impressive Catch","Fight Fight Fight","Player Throws Tantrum",
-              "Top Notch TD Celebration","Missed Extra Point","Turnover on downs","Chiefs Touchdown",
-              "Eagles Touchdown","Fumble / Interception","20+ yard catch","Quarterback Running Touchdown"]
+              "Top Notch TD Dance","Missed Extra Point","Turnover on downs","Chiefs Touchdown",
+              "Eagles Touchdown","Fumble / Intercept","2O+ yard catch","QB Running Touchdown"]
 
 COMMS_COMP = ["FanDuel","Geico","State Farm","BudLight","Coca-Cola","Toyota","Kia","Michelob Ultra",
              "M&Ms","Little Caesars","UberEats","Wing Stop","Doritos","Redbull","Allstate"]
