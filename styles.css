@@ -74,7 +74,8 @@ body {
     top: 0;
     bottom: 0;
     text-align: center;
-    margin: auto 1em;
+    margin: auto;
+    max-width: 80%;
     width: fit-content;
     height: fit-content;
     border-radius: 1em;
