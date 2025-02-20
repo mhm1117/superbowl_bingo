@@ -9,8 +9,9 @@ function init() {
     
     addSquareFunc();
 
-    addResetFunc();
+    addResetFuncs();
 }
+
 function addSquareFunc() {
     let squares = document.querySelectorAll(".square");
 
@@ -18,11 +19,11 @@ function addSquareFunc() {
         let text = square.querySelector("p");
         square.addEventListener('click', event => {
             let sqNum = square.getAttribute('sqNum');
-            console.log(sqNum);
             let selected = localStorage.getItem("square"+ sqNum);
             if (selected == "no") {
                 text.style.backgroundColor = "#FFF11B";
                 localStorage.setItem("square" + sqNum, "yes");
+                checkBingo(sqNum);
             } else {
                 text.style.backgroundColor = "white";
                 localStorage.setItem("square" + sqNum, "no");
@@ -31,11 +32,24 @@ function addSquareFunc() {
     }
 }
 
-function addResetFunc() {
+function addResetFuncs() {
+    let rechooseBtn = document.getElementById("rechoose-btn");
+
+    rechooseBtn.addEventListener('click', event => {
+        localStorage.clear();
+        window.location.reload();
+    });
+
     let resetBtn = document.getElementById("reset-btn");
 
     resetBtn.addEventListener('click', event => {
-        localStorage.clear();
+        let squares = document.querySelectorAll(".square");
+        let x = 0;
+        for (let square of squares) {
+            square.setAttribute('sqNum', x);
+            localStorage.setItem("square" + x, "no");
+            x++;
+        }
         window.location.reload();
     });
 }
@@ -127,6 +141,83 @@ function enterBingo() {
     numPicker.style.display = "none";
     let bingo = document.getElementById("bingo-card");
     bingo.style.display = "flex";
-    let resetBtn = document.getElementById("reset");
-    resetBtn.style.display = "inline-block";
+    let resetBtns = document.getElementById("reset-btns");
+    resetBtns.style.display = "inline-block";
+}
+
+function checkBingo(sqNum) {
+    
+    // sqNum == 13
+    console.log("Square Number: " + sqNum);
+    let remainder = sqNum % 5; // == 3
+    let multiple = parseInt(sqNum / 5) // == 2
+    let diagonalUp = sqNum % 4 == 0 && sqNum != 24;
+    let diagonalDown = sqNum % 6 == 0;
+
+    let bingoFlags = [];
+    for (let i = 5 * multiple; i < 5 * (multiple + 1); i++) {
+        if (localStorage.getItem("square" + i) == "no") {
+            bingoFlags.push(false);
+            break;
+        }
+    }
+
+    for (let i = remainder; i <= 20 + remainder; i += 5) {
+        if (localStorage.getItem("square" + i) == "no") {
+            bingoFlags.push(false);
+            break;
+        }
+    }
+
+    if (diagonalUp) {
+        for (let i = 4; i <= 20; i += 4) {
+            if (localStorage.getItem("square" + i) == "no") {
+                bingoFlags.push(false);
+                break;
+            }
+        }
+    } else {
+        bingoFlags.push(false);
+    }
+
+    if (diagonalDown) {
+        for (let i = 0; i < 25; i += 6) {
+            if (localStorage.getItem("square" + i) == "no") {
+                bingoFlags.push(false);
+                break;
+            }
+        }
+    } else {
+        bingoFlags.push(false);
+    }
+
+    let numBingos = (4 - bingoFlags.length);
+    if (numBingos > 0) {
+        celebrateBingo(numBingos);
+    }
+}
+
+function celebrateBingo(numBingos) {
+    let bingoMsg = "YOU GOT BINGO!"
+    console.log(numBingos);
+    switch(numBingos) {
+        case 2:
+            bingoMsg = "DOUBLE BINGO!!";
+            break;
+        case 3:
+            bingoMsg = "TRIPLE BINGO!!!";
+            break;
+        case 4:
+            bingoMsg = "QUADRUPLE BINGO!?!?"
+            break;
+    } 
+    console.log("YAY! " + bingoMsg);
+
+    let bingoDisplay = document.getElementById("bingo-msg");
+    let bingoMsgHolder = document.getElementById("bingo-msg-holder");
+    bingoMsgHolder.innerText = bingoMsg;
+    bingoDisplay.style.display = "block";
+    setTimeout(() => {
+        bingoDisplay.style.display = "none";
+    }, 2000);
 }
