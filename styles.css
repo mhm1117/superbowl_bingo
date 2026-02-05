@@ -17,11 +17,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-.chiefs {
-    background-color: #D30915;
+.team1 {
+    background-color: #C60C30;
 }
-.eagles {
-    background-color: #054D52;
+.team2 {
+    background-color: #002244;
 }
 h1 {
     font-family: baseballClubSolid;
@@ -48,11 +48,11 @@ p {
     background-color: lightblue;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    #bg-chiefs {
-        border-right: 3px solid white;
+    #bg-team1 {
+        border: 5px solid #FFFFFF;
     }
-    #bg-eagles {
-        border-left: 3px solid white;
+    #bg-team2 {
+        border: 5px solid #69BE28;
     }
 }
 
