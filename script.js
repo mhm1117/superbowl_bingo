@@ -79,7 +79,7 @@ async function setUpBingo(file) {
             enterBingo();
         }
     } else {
-        getCardNum();
+        getCardNum(); 
     }
 }
 
@@ -143,6 +143,14 @@ function enterBingo() {
     bingo.style.display = "flex";
     let resetBtns = document.getElementById("reset-btns");
     resetBtns.style.display = "inline-block";
+    let bg1 = document.getElementById("bg-team1");
+    let bg2 = document.getElementById("bg-team2");
+    bg1.style.border = "none";
+    bg2.style.border = "none";
+    let patslogo = document.getElementById("pats-logo");
+    let hawkslogo = document.getElementById("hawks-logo");
+    patslogo.style.display = "none";
+    hawkslogo.style.display = "none";  
 }
 
 function checkBingo(sqNum) {

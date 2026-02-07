@@ -17,6 +17,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+.logo {
+    margin-top: 18vh;
+    max-width: 130px;
+}
 .team1 {
     background-color: #C60C30;
 }
@@ -49,10 +53,17 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     #bg-team1 {
-        border: 5px solid #FFFFFF;
+        border: 8px solid #B0B7BC;
+        text-align: end;
+        #pats-logo {
+            margin-right: 5vw;
+        }
     }
     #bg-team2 {
-        border: 5px solid #69BE28;
+        #hawks-logo {
+            margin-left: 5vw;
+        }
+        border: 8px solid #69BE28;
     }
 }
 
@@ -129,7 +140,7 @@ main {
             display: flex;
             justify-content: space-around;
             border: 2px solid black;
-            -webkit-text-stroke: 1px #054D52;
+            -webkit-text-stroke: 1px #C60C30;
         }
         
         #square-grid {
