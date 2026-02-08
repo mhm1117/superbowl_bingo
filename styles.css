@@ -234,6 +234,9 @@ footer {
 
 @media only screen and (max-width: 800px) {
 
+    body {
+        overflow: hidden;
+    }
     h1 {
         font-size: 3em;
     }
@@ -250,6 +253,9 @@ footer {
 
 @media only screen and (max-width: 500px) {
 
+    body {
+        overflow: hidden;
+    }
     p {
         font-size: 0.75em;
     }
