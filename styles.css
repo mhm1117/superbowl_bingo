@@ -87,6 +87,7 @@ body {
     bottom: 0;
     text-align: center;
     margin: auto;
+    margin-top: 45vh;
     max-width: 80%;
     width: fit-content;
     height: fit-content;
