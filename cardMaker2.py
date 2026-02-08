@@ -8,7 +8,7 @@ gameList = [[2, ["Successful Challenge", "Pick-6", "One Handed Catch", "Missed E
 [2, ["Fight Fight Fight", "Impressive TD Celebration", "Player Knocks Someone Over", "Player Jumps Into Stands"]],              # med rare - fun
 [4, ["Missed Field Goal", "30+ Yard Catch", "20+ Yard Run", "Close Call Catch/Incomplete", "Tush Push", 
      "QB Running Touchdown", "Recovered Fumble", "2-Pt Attempt"]],                                                              # med rare - reg
-[2, ["Fumble", "Interception", "Turnover On Downs", "QB Sack", "Bad Ref Call", "4th Down Conversion"]],                         # likely
+[2, ["Fumble", "Interception", "Turnover On Downs", "QB Sack", "Bad Ref Call", "Fourth Down Conversion"]],                         # likely
 [1, ["Flag: Off. Pass Interference", "Flag: Taunting", "Flag: Grounding"]],                                                     # flags rare
 [1, ["Flag: Offsides", "Flag: False Start", "Flag: Def. Pass Interference", "Flag: Holding"]],                                  # flags likely
 [2, ["Darnold Interception", "Crazy Maye Scramble", "Random Mahomes Mention", "Tom Brady Mention", "Insane JSN Catch"]]]        # game specific
