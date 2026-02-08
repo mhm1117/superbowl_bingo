@@ -6,7 +6,7 @@ defSquares = ["Patriots TD", "Seahawks TD", "Game Goes into OT", "Bad Bunny Make
 #game related (14)
 gameList = [[2, ["Successful Challenge", "Pick-6", "One Handed Catch", "Missed Extra Point", "Deep Kickoff Return", "Safety"]], # rare
 [2, ["Fight Fight Fight", "Impressive TD Celebration", "Player Knocks Someone Over", "Player Jumps Into Stands"]],              # med rare - fun
-[4, ["Missed Field Goal", "30+ Yard Catch", "20+ Yard Run", "Close Call Catch/Incomplete", "Tush Push", 
+[4, ["Missed Field Goal", "3O+ Yard Catch", "2O+ Yard Run", "Close Call Catch/Incomplete", "Tush Push", 
      "QB Running Touchdown", "Recovered Fumble", "2-Pt Attempt"]],                                                              # med rare - reg
 [2, ["Fumble", "Interception", "Turnover On Downs", "QB Sack", "Bad Ref Call", "Fourth Down Conversion"]],                         # likely
 [1, ["Flag: Off. Pass Interference", "Flag: Taunting", "Flag: Grounding"]],                                                     # flags rare
