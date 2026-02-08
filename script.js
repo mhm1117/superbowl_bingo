@@ -152,7 +152,7 @@ function enterBingo() {
     patslogo.style.display = "none";
     hawkslogo.style.display = "none";
     let page = document.querySelector("body");
-    page.style.overflow = visible;
+    page.style.overflow = "visible";
 }
 
 function checkBingo(sqNum) {
