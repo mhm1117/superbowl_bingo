@@ -150,7 +150,9 @@ function enterBingo() {
     let patslogo = document.getElementById("pats-logo");
     let hawkslogo = document.getElementById("hawks-logo");
     patslogo.style.display = "none";
-    hawkslogo.style.display = "none";  
+    hawkslogo.style.display = "none";
+    let page = document.querySelector("body");
+    page.style.overflow = visible;
 }
 
 function checkBingo(sqNum) {

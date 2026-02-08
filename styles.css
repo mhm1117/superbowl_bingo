@@ -72,6 +72,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     /* border: 2px solid black; */
 }
 
@@ -234,9 +235,6 @@ footer {
 
 @media only screen and (max-width: 800px) {
 
-    body {
-        overflow: hidden;
-    }
     h1 {
         font-size: 3em;
     }
@@ -253,9 +251,6 @@ footer {
 
 @media only screen and (max-width: 500px) {
 
-    body {
-        overflow: hidden;
-    }
     p {
         font-size: 0.75em;
     }
